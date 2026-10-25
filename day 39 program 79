@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int a[10][10];
+    int rows, cols, i, j, k;
+
+    scanf("%d %d", &rows, &cols);
+
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < cols; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    // Start diagonals from the top row
+    for (k = 0; k < cols; k++) {
+        i = 0;
+        j = k;
+
+        while (i < rows && j >= 0) {
+            printf("%d ", a[i][j]);
+            i++;
+            j--;
+        }
+    }
+
+    // Start diagonals from the last column's remaining rows
+    for (k = 1; k < rows; k++) {
+        i = k;
+        j = cols - 1;
+
+        while (i < rows && j >= 0) {
+            printf("%d ", a[i][j]);
+            i++;
+            j--;
+        }
+    }
+
+    return 0;
+}
